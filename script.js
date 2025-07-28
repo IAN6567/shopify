@@ -232,3 +232,4 @@ document.querySelector("#toggle-mode").addEventListener("click", (e) => {
     theBtnClicked.classList.add("dark");
   }
 });
+//create a mobile menu button for this webpage-show main-nav on huge screen,on small screen show a button that on click shows  the main nav//
