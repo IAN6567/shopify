@@ -1,0 +1,93 @@
+.Products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+.Products > div {
+  width: 20%;
+}
+.Products > div img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.dark {
+  background-color: #222;
+  color: aliceblue;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+header.logo {
+  text-decoration: none;
+  color: inherit;
+  font-size: 30px;
+  font-weight: bold;
+}
+nav a {
+  text-align: none;
+  color: inherit;
+  padding: 10px 16px;
+}
+main {
+  padding: 20px 60px;
+}
+main.nav {
+  display: none;
+}
+.mobile-menu {
+  display: block;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 18px;
+  }
+  .mobile.menu {
+    display: inline;
+  }
+  main.nav {
+    display: none;
+  }
+  .main-nav.visible {
+    display: block;
+    position: fixed;
+    top: 70px;
+    left: 0px;
+    right: 0px;
+    bottom: 20px;
+    background-color: beige;
+    color: #222;
+  }
+  .main-nav.visible a {
+    display: block;
+    text-align: right;
+  }
+}
+
+ /*slider*/
+ .image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slider-image {
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+  
+  .slider-image.active {
+    display: block;
+  }
