@@ -17,8 +17,6 @@
   color: aliceblue;
 }
 /* MENU APPEAR AND DISSAPEAR */
-/* style.css */
-
 /* Hide menu button on large screens */
 .mobile-only {
   display: none;
