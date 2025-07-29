@@ -233,3 +233,13 @@ document.querySelector("#toggle-mode").addEventListener("click", (e) => {
   }
 });
 //create a mobile menu button for this webpage-show main-nav on huge screen,on small screen show a button that on click shows  the main nav//
+// script.js
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("nav-visible");
+  });
+});

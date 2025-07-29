@@ -16,3 +16,36 @@
   background-color: #222;
   color: aliceblue;
 }
+/* MENU APPEAR AND DISSAPEAR */
+/* style.css */
+
+/* Hide menu button on large screens */
+.mobile-only {
+  display: none;
+}
+
+/* Default: show nav links */
+#nav-links {
+  display: flex; /* or block, depending on your layout */
+  gap: 1rem; /* optional spacing */
+}
+
+/* Responsive breakpoint for small screens */
+@media (max-width: 768px) {
+  /* Show menu button */
+  .mobile-only {
+    display: inline-block;
+  }
+
+  /* Hide nav links by default on small screens */
+  #nav-links {
+    display: none;
+  }
+
+  /* Show nav links when toggled */
+  #nav-links.nav-visible {
+    display: flex; /* or block */
+    flex-direction: column; /* stack vertically */
+    gap: 0.5rem;
+  }
+}
