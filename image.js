@@ -1,7 +1,7 @@
 const images = [
-  "https://via.placeholder.com/300x200?text=Image+1",
-  "https://via.placeholder.com/300x200?text=Image+2",
-  "https://via.placeholder.com/300x200?text=Image+3"
+  "mike.jpeg",
+  "teenage.jpeg",
+  "Angie.jpeg"
 ];
 //hizi hapa juu ni images yenye utataka hiyo transition ifanyikie
 let currentIndex = 0;
