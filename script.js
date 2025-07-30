@@ -258,3 +258,25 @@ document.getElementById("sort-by-rating").addEventListener("click", () => {
   }
   countClicks++;
 });
+//calling by reference and calling by  value
+document.querySelectorAll("input[name='range']").forEach((inputE1)=>{
+  inputE1.addEventListener("change",(e)=>{
+    const theInputCheckedId=e.target.id;
+    console.log(theInputCheckedId);
+    let filteredInputs=[]
+    if(theInputCheckedId=="range1"){
+      filteredInputs=Products.filter(p=>p.price*129 < 2000)
+    }
+    else if(theInputCheckedId=="range2"){
+      filteredInputs=Products.filter(p=>p.price*129 >2000 && p.price*129<5000)
+    }
+    else if(theInputCheckedId=="range3"){
+      filteredInputs=Products.filter(p=>p.price*129 >5000 && p.price*129<8000)
+    }
+    else{
+      filteredInputs=Products.filter(p=>p.price*129>8000)
+    }
+    renderProducts(filteredInputs)
+  
+  });
+});
