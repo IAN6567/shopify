@@ -280,3 +280,4 @@ document.querySelectorAll("input[name='range']").forEach((inputE1)=>{
   
   });
 });
+//try implement the search button through the products-use the search bar to filter the products based on the earch query-use the filter method to identify if the search item is in the product tittle or the description the use renderproducts funtions
