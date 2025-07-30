@@ -207,6 +207,7 @@ const Products = [
   },
 ];
 function renderProducts(Productsarray) {
+  document.getElementById("all-Products").innerHTML="";//clear the section
   for (let i = 0; i < Productsarray.length; i++) {
     const newProductElement = document.createElement("div");
     newProductElement.innerHTML = `
@@ -224,7 +225,7 @@ document.querySelector("#toggle-mode").addEventListener("click", (e) => {
   const theBtnClicked = e.target;
   if (theBtnClicked.classList.contains("dark")) {
     document.querySelector("body").classList.add("dark");
-    theBtnClicked.textcontent = "light Mode";
+    theBtnClicked.textContent = "light Mode";
     theBtnClicked.classList.remove("dark");
   } else {
     document.querySelector("body").classList.remove("dark");
@@ -242,4 +243,18 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("nav-visible");
   });
+});
+const sortedProductsAsc=Products.sort((a,b)=>a.rating.rate-b.rating.rate);
+const sortedProductsDesc=Products.sort((a,b)=>b.rating.rate-a.rating.rate);
+let countClicks = 1;
+
+document.getElementById("sort-by-rating").addEventListener("click", () => {
+  if (countClicks % 2 === 0) {
+    const sortedAsc = [...Products].sort((a, b) => a.rating.rate - b.rating.rate);
+    renderProducts(sortedAsc);
+  } else {
+    const sortedDesc = [...Products].sort((a, b) => b.rating.rate - a.rating.rate);
+    renderProducts(sortedDesc);
+  }
+  countClicks++;
 });

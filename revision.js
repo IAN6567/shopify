@@ -236,29 +236,4 @@ const Products = [
  document.getElementById("mobile-menu").addEventListener("click",()=>{
     document.getElementById("main-nav".classList("visible"));
  });
- //create an image slider use queryselectorALL to select all images with class name"slider-image" and then use a for loop to create a slider that can be navigated using the next and previous button
- document.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll(".slider-image");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-    let currentIndex = 0;
-  
-    function showImage(index) {
-      images.forEach((img, i) => {
-        img.classList.toggle("active", i === index);
-      });
-    }
-  
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(currentIndex);
-    });
-  
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
-    });
-  
-    // Show the first image initially
-    showImage(currentIndex);
-  });
+ 
