@@ -280,4 +280,23 @@ document.querySelectorAll("input[name='range']").forEach((inputE1)=>{
   
   });
 });
+
 //try implement the search button through the products-use the search bar to filter the products based on the earch query-use the filter method to identify if the search item is in the product tittle or the description the use renderproducts funtions
+document.getElementById("searchBtn").addEventListener("click", () => {
+  const query = document.getElementById("searchInput").value.toLowerCase().trim();
+
+  if (query === "") {
+    alert("Please enter a search term.");
+    return;
+  }
+
+  const filteredProducts = Products.filter(product =>
+    product.title.toLowerCase().includes(query)
+  );
+
+  if (filteredProducts.length > 0) {
+    renderProducts(filteredProducts);
+  } else {
+    document.getElementById("all-Products").innerHTML = "<p>No products found.</p>";
+  }
+});
