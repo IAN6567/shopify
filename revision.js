@@ -207,7 +207,7 @@ const Products = [
   },
 ];
 function renderProducts(Productsarray) {
-  document.getElementById("all-Products").innerHTML="";//clear the section
+  document.getElementById("all-Products").innerHTML = ""; //clear the section
   for (let i = 0; i < Productsarray.length; i++) {
     const newProductElement = document.createElement("div");
     newProductElement.innerHTML = `
@@ -244,55 +244,76 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.classList.toggle("nav-visible");
   });
 });
-const sortedProductsAsc=Products.sort((a,b)=>a.rating.rate-b.rating.rate);
-const sortedProductsDesc=Products.sort((a,b)=>b.rating.rate-a.rating.rate);
+const sortedProductsAsc = Products.sort(
+  (a, b) => a.rating.rate - b.rating.rate
+);
+const sortedProductsDesc = Products.sort(
+  (a, b) => b.rating.rate - a.rating.rate
+);
 let countClicks = 1;
 
 document.getElementById("sort-by-rating").addEventListener("click", () => {
   if (countClicks % 2 === 0) {
-    const sortedAsc = [...Products].sort((a, b) => a.rating.rate - b.rating.rate);
+    const sortedAsc = [...Products].sort(
+      (a, b) => a.rating.rate - b.rating.rate
+    );
     renderProducts(sortedAsc);
   } else {
-    const sortedDesc = [...Products].sort((a, b) => b.rating.rate - a.rating.rate);
+    const sortedDesc = [...Products].sort(
+      (a, b) => b.rating.rate - a.rating.rate
+    );
     renderProducts(sortedDesc);
   }
   countClicks++;
 });
 //calling by reference and calling by  value
-document.querySelectorAll("input[name='range']").forEach((inputE1)=>{
-  inputE1.addEventListener("change",(e)=>{
-    const theInputCheckedId=e.target.id;
+document.querySelectorAll("input[name='range']").forEach((inputE1) => {
+  inputE1.addEventListener("change", (e) => {
+    const theInputCheckedId = e.target.id;
     console.log(theInputCheckedId);
-    let filteredInputs=[]
-    if(theInputCheckedId=="range1"){
-      filteredInputs=Products.filter(p=>p.price*129 < 2000)
+    let filteredInputs = [];
+    if (theInputCheckedId == "range1") {
+      filteredInputs = Products.filter((p) => p.price * 129 < 2000);
+    } else if (theInputCheckedId == "range2") {
+      filteredInputs = Products.filter(
+        (p) => p.price * 129 > 2000 && p.price * 129 < 5000
+      );
+    } else if (theInputCheckedId == "range3") {
+      filteredInputs = Products.filter(
+        (p) => p.price * 129 > 5000 && p.price * 129 < 8000
+      );
+    } else {
+      filteredInputs = Products.filter((p) => p.price * 129 > 8000);
     }
-    else if(theInputCheckedId=="range2"){
-      filteredInputs=Products.filter(p=>p.price*129 >2000 && p.price*129<5000)
-    }
-    else if(theInputCheckedId=="range3"){
-      filteredInputs=Products.filter(p=>p.price*129 >5000 && p.price*129<8000)
-    }
-    else{
-      filteredInputs=Products.filter(p=>p.price*129>8000)
-    }
-    renderProducts(filteredInputs)
-  
+    renderProducts(filteredInputs);
   });
 });
 
 //try implement the search button through the products-use the search bar to filter the products based on the earch query-use the filter method to identify if the search item is in the product tittle or the description the use renderproducts funtions
 console.log(document.getElementById("sort-by-rating").nextElementSibling);
-document.querySelector("form").addEventListener("submit",(e)=>{
-  e.preventDefault()//by default aform for submission triggers a http request.
-  let searchword=document
-  .getElementById("search-word")
-  .Value.toLowerCase()
-  .trim();
-  constfilteredProducts= Products.filter(p=>
-    p.title.toLowerCase().includes(searchword)||p.description.toLowerCase().includes(searchword)
-  );
-  if(filteredProductsy.length>0){
-    renderProducts(filterproducts);
-  }else document.getElementById("all-products".innerHTML="<h2 style=")
-})
+
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault(); // by default a for submision triggers a http request.
+  let searchString = document
+    .getElementById("search-Word")
+    .value.toLowerCase()
+    .trim();
+  let filteredProducts = [];
+
+  searchString.split(" ").forEach((word) => {
+    const subFilteredProducts = products.filter((p) => {
+      return (
+        p.title.toLowerCase().includes(word) ||
+        p.description.toLowerCase().includes(word)
+      );
+    });
+    filteredProducts = [...filteredProducts, ...subFilteredProducts];
+  });
+
+  if (filteredProducts.length > 0) {
+    renderProducts(filteredProducts);
+  } else {
+    document.getElementById("all-products").innerHTML =
+      "<h2 style='color: orangered'>No products found</h2>";
+  }
+});
