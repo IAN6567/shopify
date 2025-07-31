@@ -4,27 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>shopify</title>
-    <link rel="stylesheet" href="./revision.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="dark">
     <header>
-      <a href="/" class="logo">shopify</a>
-      <nav id="main-nav" class="main-nav">
-        <a href="">about</a>
-        <a href="">History</a>
-        <a href="">contact</a>
-        <a href="">services</a>
+      <nav id="main-nav">
+        <button id="menu-toggle" class="mobile-only">
+          <ion-icon name="menu-outline"></ion-icon> Menu
+        </button>
       </nav>
       <nav>
-        <button>Search</button>
-        <button id="toggle-mode" class="dark">Dark Mode</button>
-        <button class="mobile-menu" id="mobile-menu">☰</button>
+        <form action="">
+          <input type="text" name="search-word" />
+          <button type="submit">search</button>
+        </form>
+        <button id="toggle-mode" class="dark">Dark mode</button>
+        <button class="mobile-menu" id="mobile-menu"></button>
       </nav>
-      <a href="/">Shopify</a>
     </header>
     <main>
       <div class="user-actions">
-        <button>Sort by Rating</button>
+        <button id="sort-by-rating">Sort by Rating</button>
         <input type="Radio" name="range" id="range1" />
         <label for="range1">0-2000</label>
         <input type="Radio" name="range" id="range2" />
